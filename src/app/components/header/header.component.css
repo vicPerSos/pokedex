@@ -26,12 +26,3 @@ header {
     margin: auto 6px auto 12px;
 }
 
-
-footer {
-background-color: #151515;
-color: aliceblue;
-display: flex;
-height: 50px;
-justify-content: center;
-}
-

@@ -1,0 +1,7 @@
+#principal {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #333333;
+}

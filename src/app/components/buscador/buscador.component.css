@@ -1,0 +1,11 @@
+input{
+    background-color: rgb(126, 126, 126);
+    width: 300px;
+    border-radius: 25px;
+    margin-top: 50px;
+    color: aliceblue;
+    border: 4px solid black;
+}
+input::placeholder{
+    color: aliceblue;
+}

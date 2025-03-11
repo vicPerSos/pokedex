@@ -5,9 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng build --configuration production && ng run pokemonApi:server:production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:pokemonApi": "node dist/pokemon-api/server/server.mjs"
+    "serve:ssr": "node dist/pokemonApi/server/main.js"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +21,12 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.0",
+    "@nguniversal/express-engine": "^7.0.2",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^5.3.3",
     "express": "^4.18.2",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
