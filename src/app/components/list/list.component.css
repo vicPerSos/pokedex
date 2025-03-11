@@ -1,0 +1,10 @@
+div.card {
+    width: 18rem;
+    background-color: #242424;
+    color: whitesmoke;
+}
+a.btn.btn-primary {
+    background-color: #c74512;
+    border: 2px solid #782f12;
+    color: whitesmoke;
+}

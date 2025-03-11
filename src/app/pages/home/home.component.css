@@ -4,4 +4,10 @@
     justify-content: center;
     width: 100%;
     background-color: #333333;
+    flex-direction: column;
+    align-items: center;
+}
+
+app-buscador {
+    margin-top: 20px;
 }
