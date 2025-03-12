@@ -1,10 +1,35 @@
-div.card {
-    width: 18rem;
+.card {
+    width: 100%; /* Deja que Bootstrap controle el ancho */
     background-color: #242424;
     color: whitesmoke;
-}
-a.btn.btn-primary {
+    padding: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-top {
+    height: 140px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+    margin-bottom: 10px; /* Espacio entre la imagen y el título */
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .btn-primary {
     background-color: #c74512;
     border: 2px solid #782f12;
     color: whitesmoke;
-}
+  }
+  
+  .btn-primary:hover {
+    background-color: #a83d12;
+    border-color: #5e260e;
+  }

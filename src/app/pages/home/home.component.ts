@@ -10,26 +10,34 @@ import { Resultado } from '../../interfaces/pokeapi';
 })
 export class HomeComponent implements OnInit {
 
-  private _PokemonService: PokemonService;
-  public resultados: Resultado[] = [];
+  public resultados: any[] = [];
   public nextPage: string = "";
   public prevPage: string = "";
+  public loading = true;
+  public error = false;
 
-  constructor(private PokemonService: PokemonService) {
-    this._PokemonService = PokemonService
-  }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
     this.cargarLista();
   }
-  
-  cargarLista(): void {
-    this._PokemonService.getList().subscribe((data: any) => {
-      this.resultados = data.results;
-      this.nextPage = data.next;
-      this.prevPage = data.previous;
-    });
 
+  cargarLista(url: string = "https://pokeapi.co/api/v2/pokemon"): void {
+    this.loading = true;
+    this.error = false;
+
+    this.pokemonService.getList(url).subscribe(
+      (data: any) => {
+        this.resultados = data.results;
+        this.nextPage = data.next;
+        this.prevPage = data.previous;
+        this.loading = false;
+      },
+      (error) => {
+        this.error = true;
+        this.loading = false;
+        console.error('Error:', error);
+      }
+    );
   }
-
 }
