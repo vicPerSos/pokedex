@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
   
   cargarLista(): void {
-    this._PokemonService.getByPage().subscribe((data: any) => {
+    this._PokemonService.getList().subscribe((data: any) => {
       this.resultados = data.results;
       this.nextPage = data.next;
       this.prevPage = data.previous;
