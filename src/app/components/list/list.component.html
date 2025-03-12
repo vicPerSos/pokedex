@@ -1,15 +1,17 @@
-<div class="row">
-  <div class="col-md-3 mb-4" *ngFor="let pokemon of pokemonList">
-    <div class="card" style="background-color: #242424; color: whitesmoke;">
-      <img 
-        [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'" 
-        class="card-img-top" 
-        alt="{{ pokemon.name | titlecase }}"
-        onerror="this.src='https://www.heraldscotland.com/resources/images/5283517.jpg/'"
-      >
-      <div class="card-body d-flex flex-column justify-content-between">
-        <h5 class="card-title text-center">{{ pokemon.name | titlecase }}</h5>
-        <a [routerLink]="['/pokemon', pokemon.name]" class="btn btn-primary mt-auto">Detalles</a>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let pokemon of pokemonList">
+      <div class="card" style="background-color: #242424; color: whitesmoke;">
+        <img 
+          [src]="pokemon.image || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'" 
+          class="card-img-top" 
+          alt="{{ pokemon.name | titlecase }}"
+          onerror="this.src='https://static.wikia.nocookie.net/ficcion-sin-limites/images/e/ed/MissingnoIdle.gif/revision/latest?cb=20221123030520&path-prefix=es'"
+        >
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title text-center">{{ pokemon.name | titlecase }}</h5>
+          <a [routerLink]="['/pokemon', pokemon.name]" class="btn btn-primary mt-auto">Detalles</a>
+        </div>
       </div>
     </div>
   </div>

@@ -12,8 +12,6 @@
   }
   
   .card-img-top {
-    height: 140px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Ajusta la imagen al contenedor */
     margin-bottom: 10px; /* Espacio entre la imagen y el título */
   }
   
