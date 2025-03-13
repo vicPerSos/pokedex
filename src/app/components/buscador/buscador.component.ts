@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-buscador',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './buscador.component.css'
 })
 export class BuscadorComponent {
+  @Output() searchEvent = new EventEmitter<string>(); // Evento para emitir el término
+  searchTerm: string = '';
+
+  onSearch() {
+    this.searchEvent.emit(this.searchTerm.toLowerCase()); // Emite el término en minúsculas
+  }
 
 }

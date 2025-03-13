@@ -10,12 +10,13 @@ import { Pokemon } from '../../services/pokemon.service';
 })
 export class HomeComponent implements OnInit {
   public resultados: Pokemon[] = [];
+  public filteredPokemons: Pokemon[] = []; // Lista filtrada
   public nextPage: string = "";
   public prevPage: string = "";
   public loading = true;
   public error = false;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
     this.cargarLista();
@@ -29,7 +30,6 @@ export class HomeComponent implements OnInit {
       (data: any) => {
         this.resultados = this.pokemonService.processResults(data); // Procesamos los resultados
 
-        // Imprimir las URLs de las imágenes en la consola
         this.resultados.forEach(pokemon => {
           const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
           // Verificar si la imagen existe haciendo una solicitud HEAD
@@ -55,4 +55,10 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+  onSearch(term: any, string: any) {
+    throw new Error('Function not implemented.');
+  }
+
 }
+
+

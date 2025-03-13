@@ -1,6 +1,7 @@
 <div class="input-wrapper">
-    <input class="form-control" type="text" name="nombre" placeholder="Busca un pokémon ">
-    <button class="icon-button" aria-label="Buscar">
-        🔍
-      </button>
+  <input class="form-control" type="text" name="nombre" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm"
+    (input)="onSearch()" ><!-- Emite el término en cada cambio -->
+  <button class="icon-button" aria-label="Buscar">
+    🔍
+  </button>
 </div>
