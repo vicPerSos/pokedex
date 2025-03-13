@@ -1,6 +1,7 @@
-<div class="input-wrapper">
-  <input class="form-control" type="text" name="nombre" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm"
-    (input)="onSearch()" ><!-- Emite el término en cada cambio -->
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Buscar Pokémon..." [(ngModel)]="searchTerm"
+    (input)="onInputChange()"><!-- Emite en cada cambio -->
+    <!-- Solo llama al método, no emites el evento aquí -->
   <button class="icon-button" aria-label="Buscar">
     🔍
   </button>
