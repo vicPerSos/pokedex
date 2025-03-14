@@ -1,19 +1,24 @@
 <main id="principal">
-  <!-- Correcto: $event es el término de búsqueda (string) -->
   <app-buscador (searchEvent)="onSearch($event)"></app-buscador>
-  <!-- Mostrar resultados de búsqueda o lista paginada -->
-  <ng-container *ngIf="!searchTerm; else searchResultsTemplate">
-    <app-list [pokemonList]="resultados" (nextPageEvent)="cargarLista(nextPage)"
-      (prevPageEvent)="cargarLista(prevPage)"></app-list>
+
+  <!-- Mostrar lista paginada o resultados de búsqueda -->
+  <ng-container *ngIf="!searchTerm; else searchResults">
+    <app-list [pokemonList]="resultados"></app-list>
   </ng-container>
 
-  <ng-template #searchResultsTemplate>
+  <ng-template #searchResults>
     <app-list [pokemonList]="searchResults"></app-list>
   </ng-template>
 
   <!-- Mensaje si no hay resultados -->
   <div *ngIf="searchTerm && searchResults.length === 0" class="alert alert-warning">
     No se encontraron Pokémon con el nombre "{{ searchTerm }}".
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <br>
+    <button class="btn btn-primary me-2" *ngIf="prevPage" (click)="cargarLista(prevPage)">Anterior</button>
+    <button class="btn btn-primary" *ngIf="nextPage" (click)="cargarLista(nextPage)">Siguiente</button>
   </div>
 
 </main>

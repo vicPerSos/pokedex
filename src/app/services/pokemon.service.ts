@@ -28,18 +28,19 @@ export class PokemonService {
     });
   }
   searchPokemon(term: string): Observable<any[]> {
-    if (!term.trim()) return of([]);
+  if (!term.trim()) return of([]);
 
-    return this._httpClient.get<any>(`${this._urlBase}/${term.toLowerCase()}`).pipe(
-      map(pokemon => [pokemon]), // Retorna un array con el Pokémon encontrado
-      catchError(() => {
-        // Si no encuentra, busca coincidencias parciales (ej: "pika" → "pikachu")
-        return this._httpClient.get<any>(this._urlBase).pipe(
-          map(data => data.results.filter((p: any) => p.name.includes(term.toLowerCase())))
-        );
-      })
-    );
-  }
+  // Intenta buscar el Pokémon exacto
+  return this._httpClient.get<any>(`${this._urlBase}/${term.toLowerCase()}`).pipe(
+    map(pokemon => [pokemon]), // Retorna un array con el Pokémon encontrado
+    catchError(() => {
+      // Si no encuentra, busca coincidencias parciales
+      return this._httpClient.get<any>(this._urlBase).pipe(
+        map(data => data.results.filter((p: any) => p.name.includes(term.toLowerCase())))
+      );
+    })
+  );
+}
 
 
 }
